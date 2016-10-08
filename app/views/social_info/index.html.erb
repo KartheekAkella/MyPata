@@ -1,0 +1,44 @@
+<%- model_class = SocialInfo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:website) %></th>
+      <th><%= model_class.human_attribute_name(:fb) %></th>
+      <th><%= model_class.human_attribute_name(:linkedin) %></th>
+      <th><%= model_class.human_attribute_name(:twitter) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @social_infos.each do |social_info| %>
+      <tr>
+        <td><%= link_to social_info.id, social_info_path(social_info) %></td>
+        <td><%= social_info.website %></td>
+        <td><%= social_info.fb %></td>
+        <td><%= social_info.linkedin %></td>
+        <td><%= social_info.twitter %></td>
+        <td><%= social_info.user_id %></td>
+        <td><%=l social_info.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_social_info_path(social_info), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      social_info_path(social_info),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_social_info_path,
+            :class => 'btn btn-primary' %>

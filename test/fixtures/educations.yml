@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  institute: MyString
+  details: MyString
+  active: false
+  start_date: 2016-09-30
+  end_date: 2016-09-30
+  user: one
+
+two:
+  institute: MyString
+  details: MyString
+  active: false
+  start_date: 2016-09-30
+  end_date: 2016-09-30
+  user: two

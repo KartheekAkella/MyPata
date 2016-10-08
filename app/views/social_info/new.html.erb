@@ -1,0 +1,62 @@
+<%- model_class = SocialInfo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+
+
+<%= form_for @social_info, url: {action: "create"}, :html => { :class => "form-horizontal social_info" } do |f| %>
+  <% if @social_info.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@social_info.errors.count, "error") %> prohibited this social_info from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @social_info.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :website, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-6">
+      <%= f.text_field :website, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:website) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fb, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-6">
+      <%= f.text_field :fb, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:fb) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :linkedin, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-6">
+      <%= f.text_field :linkedin, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:linkedin) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :twitter, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-6">
+      <%= f.text_field :twitter, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:twitter) %>
+  </div>
+ 
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit "Add Social Info", :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                social_info_index_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
+
