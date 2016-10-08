@@ -7,7 +7,10 @@ class ProfileController < ApplicationController
 	end
 
 	def add_contact
-		
+		@contact = User.find_by_nick params[:nick]
+		@user = current_user
+		@user.follow(@contact)
+		redirect_to root_path
 		
 	end
 
