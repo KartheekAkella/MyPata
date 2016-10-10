@@ -1,6 +1,6 @@
 class SocialInfoController < ApplicationController
 	before_action :set_social_info, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!
+	before_action :authenticate_user!
 
 	def index
 		@social_info = current_user.social_info

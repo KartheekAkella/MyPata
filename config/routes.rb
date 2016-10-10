@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :social_info
   resources :phones
   resources :emails
+  resources :labels
   devise_for :users
   get "/:nick" => "profile#show"
   get "/profile/menu", to: "profile#menu"
