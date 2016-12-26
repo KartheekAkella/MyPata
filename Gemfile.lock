@@ -229,5 +229,8 @@ DEPENDENCIES
   wdm (>= 0.1.0)
   web-console
 
+RUBY VERSION
+   ruby 2.2.4p230
+
 BUNDLED WITH
    1.13.6
