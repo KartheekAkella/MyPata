@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+ruby "2.2.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -28,7 +28,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 #gem 'paperclip'
 gem "acts_as_follower", :git => 'https://github.com/tcocca/acts_as_follower.git'
-#gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem "cocaine", "= 0.3.2" 
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.3'
@@ -40,6 +40,7 @@ gem "nifty-generators", :group => :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
+gem 'rails_12factor', group: :production
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
@@ -58,3 +59,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
