@@ -28,7 +28,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 #gem 'paperclip'
 gem "acts_as_follower", :git => 'https://github.com/tcocca/acts_as_follower.git'
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+#gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem "cocaine", "= 0.3.2" 
 gem 'carrierwave'
 gem 'mini_magick', '~> 4.3'
