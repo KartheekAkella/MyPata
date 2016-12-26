@@ -1,0 +1,152 @@
+ 
+<body>
+        <section class="main-container">
+
+            <div class="blocks">
+
+                <div class="block block--left" style="transform: matrix(1, 0, 0, 1, 0, 0); visibility: inherit; opacity: 1;">
+                <a href="#"  id="nav-toggle"><span></span></a>
+                    <div class="block__inner">
+                        <div class="block-content">
+                            <img src="<%=@user.avatar.url(:thumb)%>" alt="" class="img-circle user-image">
+                            <h1 class="block__title">
+                                <span style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">@<%= @user.nick %></span>
+                            </h1>
+                            <% if @user != current_user %>
+                            <div class="block__cta" style="overflow: visible;">
+                             <% if current_user.following?(@user) %>
+                             <%= link_to raw("<span>Your Contact</span>"), add_contact_path , :style => "transform: matrix(1, 0, 0, 1, 0, 0); visibility: inherit; opacity: 1;"%>
+                             <%else%>
+                             <%= link_to raw("<span>Add Contact</span>"), add_contact_path , :style => "transform: matrix(1, 0, 0, 1, 0, 0); visibility: inherit; opacity: 1;"%>
+                             <%end%>
+                            </div>
+                            <%end%>
+                        </div>
+                    </div>
+                    <!--<div class="block__bgi" style="transform: matrix(1, 0, 0, 1, 0, 0); visibility: inherit; opacity: 1;"></div>-->
+                </div>
+                <div class="block block--right">
+                    <div class="block__inner">
+                        <div class="content content--about" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                            <div class="content__tag-wrapper">
+                                <h2 class="content__tag">About</h2>
+                            </div>
+                            <div class="content__inner">
+                                <p><%=@user.intro%></p>
+                            </div>
+                        </div>
+                        <div class="content content--projects" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                            <div class="content__tag-wrapper">
+                                <h2 class="content__tag">Education</h2>
+                            </div>
+                            <div class="content__inner">
+                                
+                                <% if @user.educations[0].nil? %>
+                                    <% if @user == current_user %>
+                                    <div class="project">
+                                        <p class="project__description"> 
+                                        <%= link_to "Add New", new_education_path %>
+                                        </p>
+                                    </div>
+                                    <% else %>
+                                     <div class="project">
+                                        <p class="project__description"> 
+                                        No details.
+                                        </p>
+                                     </div>
+                                    <% end %>
+                                   
+                                <% else %>
+
+                                    <% @user.educations.each do |e| %>
+                                        <div class="project">
+                                            <h3 class="project__title"><%= e.details %></h3>
+                                            <p class="project__description">at <%= e.institute %></p>
+                                            <p class="experience__time">from <%= e.start_date %> to <%= e.end_date%>.</p>
+                                        </div>
+                                    <% end %>
+                                    <% if @user == current_user %>
+                                        <div class="project">
+                                            <p class="project__description"> 
+                                            <%= link_to "Add New", new_education_path %>
+                                            </p>
+                                       </div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        </div>
+                        <div class="content content--projects" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                            <div class="content__tag-wrapper">
+                                <h2 class="content__tag">Work Experience</h2>
+                            </div>
+                            <div class="content__inner">
+                                
+                                <% if @user.works[0].nil? %>
+                                    <% if @user == current_user %>
+                                    <div class="project">
+                                        <p class="project__description"> 
+                                        <%= link_to "Add New", new_work_path %>
+                                        </p>
+                                    </div>
+                                    <% else %>
+                                     <div class="project">
+                                        <p class="project__description"> 
+                                        No details.
+                                        </p>
+                                    </div>
+                                    <% end %>
+                                    
+                                <% else %>
+
+                                    <% @user.works.each do |e| %>
+                                        <div class="project">
+                                            <h3 class="project__title"><%= e.details %></h3>
+                                            <p class="project__description">at <%= e.company %></p>
+                                            <p class="experience__time">from <%= e.start_date %> to <%= e.end_date%>.</p>
+                                        </div>
+                                    <% end %>
+                                    <% if @user == current_user %>
+                                        <div class="project">
+                                            <p class="project__description"> 
+                                            <%= link_to "Add New", new_work_path %>
+                                            </p>
+                                       </div>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        </div>
+                        <div class="content content--exp" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                            <div class="content__tag-wrapper">
+                                <h2 class="content__tag">Social</h2>
+                            </div>
+                            <div class="content__inner">
+                                <div class="experience">
+                                    <% if @user.social_info.nil? %>
+                                        <% if @user == current_user %>
+                                        <p class="project__description"> 
+                                        <%= link_to "Add", new_social_info_path %>
+                                        </p>
+                                        <% else%>
+                                        <p class="project__description"> 
+                                        No details.
+                                        </p>
+                                        <%end%>
+                                    <%else%>
+                                    <h3 class="experience__agency">Website</h3>
+                                    <p class="experience__role"><%= @user.social_info.website %></p>
+                                    <h3 class="experience__agency">Facebook</h3>
+                                    <p class="experience__role"><%= @user.social_info.fb %></p>
+                                    <h3 class="experience__agency">Twitter</h3>
+                                    <p class="experience__role"><%= @user.social_info.twitter %></p>
+                                    <h3 class="experience__agency">Linkedin</h3>
+                                    <p class="experience__role"><%= @user.social_info.linkedin %></p>
+                                    <%end%>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+</body>

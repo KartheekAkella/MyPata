@@ -22,18 +22,5 @@
    def downcase_fields
       self.nick.downcase!
    end
-
-has_attached_file :avatar,
-
-
-:path => ":rails_root/public/system/:attachment/:id/:basename_:style.:extension",
-:url => "/system/:attachment/:id/:basename_:style.:extension",
-:styles => {
-  :thumb    => ['120x120#',  :jpg, :quality => 70],
-  :preview  => ['480x480#',  :jpg, :quality => 70],
-  :large    => ['600>',      :jpg, :quality => 70],
-  :retina   => ['1200>',     :jpg, :quality => 30]
-},
-:default_url => "/images/:style/missing.png"
-validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+# mount_uploader :avatar, AvatarUploader
 end

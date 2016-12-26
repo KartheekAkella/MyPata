@@ -1,32 +1,36 @@
+<%if user_signed_in?%>
 <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="/">
-                        My Pata
-                    </a>
-                </li>
-                <li>
-                    <% if current_user.nil? == false %>
-                    <%= link_to "Profile", "/#{current_user.nick}" %>
-                    <%end%>
-                </li>
-                <li>
-                    <a href="/educations">Education</a>
-                </li>
-                <li>
-                    <a href="/works">Work</a>
-                </li>
-                <li>
-                    <a href="/social_info">Social</a>
-                </li>
-                <li>
-                    <a href="/users/edit">Settings</a>
-                </li>
-                <li>
-                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-                </li>
-                
-            </ul>
+
+        <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                <p class="centered"><% image_tag "i-sma.png", class: "img-circle", width: "60"%></a></p>
+                <h5 class="centered"><%="#{current_user.nick}"%></h5>
+                   <li class="mt">
+                      <a href="/home">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href = "/labels" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Labels</span>
+                      </a>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a class = "active" href = <%="/#{current_user.nick}"%> >
+                          <i class="fa fa-desktop"></i>
+                          <span>Profile</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> 
+                  </li>
+              </ul>
+              <!-- sidebar menu end-->
         </div>
         <!-- /#sidebar-wrapper -->
+        <%end%>

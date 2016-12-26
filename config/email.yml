@@ -1,0 +1,8 @@
+development:
+  :address: smtp.gmail.com
+  :port: 587
+  :authentication: plain
+  :user_name: mypata.in@gmail.com 
+  :password: 8096794975
+  
+  :enable_starttls_auto: true

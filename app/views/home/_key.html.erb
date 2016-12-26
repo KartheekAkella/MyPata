@@ -1,0 +1,9 @@
+ <form class="navbar-form">
+                                 <%= form_tag(controller: "home", action: "landing", method: "get", class: "navbar-form navbar-right") do %>
+                                       <div class="form-group"> <!-- this keeps the search box and button in same line -->
+                                       <%= text_field_tag :key,'email',class: "form-control", size: "60" %>
+                                         <!-- <input class="form-control" placeholder="First Name" size="60">  -->
+                                       </div>
+                                        <%= submit_tag "check", class: "btn btn-default"  %>
+                                       <!-- <button class="btn btn-default">Send</button> <!-- btn  --><!-- btn-default gives similar look to both box and button --> 
+                                    <%end%>

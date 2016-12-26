@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MyPata</title>
+
+    <!-- STYLE ELEMENTS -->
+    <style>
+      form{
+        background-color: transparent;
+      }
+
+    </style>
+
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     --><%= stylesheet_link_tag "bootstrap.min.css"%>
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> -->
+
+    <!-- Plugin CSS -->
+  <%= stylesheet_link_tag "font-awesome.min.css"%>
+   <!--  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    -->  <%= stylesheet_link_tag "simple-line-icons.css"%>
+      
+      <!-- 1 --><%= stylesheet_link_tag "device-mockups.min.css"%>
+      <!-- <link rel="stylesheet" href="vendor/device-mockups/device-mockups.min.css">
+  --><%=stylesheet_link_tag "new-age.min.css"%>
+    <!-- Theme CSS -->
+    <!-- <%stylesheet_link_tag %>
+    <link href="css/new-age.min.css" rel="stylesheet">
+ -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">My Pata</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#download">Download</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#features">Features</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="header-content">
+                        <div class="header-content-inner">
+                            <h1>Now sharing your identity and contacts is easy, quick and safe through the Mypata NICK that shares only what you want via LABELS, with different people.</h1>
+                            <h3>Just enter your email we will send you an early access code</h3>
+                                 <h2>
+                                 <form class="navbar-form">
+                                 <%= form_tag(controller: "home", action: "landing", method: "get", class: "navbar-form navbar-right") do %>
+                                       <div class="form-group"> <!-- this keeps the search box and button in same line -->
+                                       <%= text_field_tag :email,'email',class: "form-control", size: "60" %>
+                                       <%= hidden_field_tag :some_field, :value => true %>
+                                     
+                                         <!-- <input class="form-control" placeholder="First Name" size="60">  -->
+                                       </div>
+                                        <%= submit_tag "SEND", class: "btn btn-default"  %>
+                                       <!-- <button class="btn btn-default">Send</button> <!-- btn  --><!-- btn-default gives similar look to both box and button --> 
+                                    <%end%>
+
+                                    <%=
+                                    if params.include?(:some_field)
+                                      render 'key'
+                                     end
+
+
+                                    %>
+                                     
+
+</form>
+Try it Yourself »
+</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="device-container">
+                        <div class="device-mockup iphone6_plus portrait white">
+                            <div class="device" style="width:90%; height:90%;">
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+     <section id="download" class="download bg-primary text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="section-heading">Discover what all the buzz is about!</h2>
+                    <p>Our apps will soon be available in the market :)<br>
+                     meanwhile feel free to explore our new site </p>
+                    <div class="badges">
+                        <a class="badge-link" href="#">
+
+                                             <%= image_tag('google-play-badge.svg')%>
+                                            </a>
+                        <a class="badge-link" href="#">
+                         <%= image_tag('app-store-badge.svg')%>
+                                            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-heading">
+                        <h2>Unlimited Features, Unlimited Fun</h2>
+                        <p class="text-muted">Check out what you can do with our app</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="device-container">
+                        
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-screen-smartphone text-primary"></i>
+                                    <h3>Features</h3>
+                                    <p class="text-muted">all your contacts in one place</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-camera text-primary"></i>
+                                    <h3>sync contacts</h3>
+                                    <p class="text-muted">sync google+</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-present text-primary"></i>
+                                    <h3>quick</h3>
+                                    <p class="text-muted">sync Faceook</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="icon-lock-open text-primary"></i>
+                                    <h3>sync contacts</h3>
+                                    <p class="text-muted">sync linkedin</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+     <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2>We <i class="fa fa-heart"></i> new friends!</h2>
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="social-facebook">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="social-google-plus">
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <%= render 'layouts/footer'%>
+    
+      <!-- jQuery -->
+      <%=javascript_include_tag 'jquery.min.js'%>
+   
+      <%=javascript_include_tag 'bootstrap.min.js'%>
+         <%=javascript_include_tag 'new-age.min.js'%>
+       
+
+</body>
+
+</html>

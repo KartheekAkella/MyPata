@@ -1,3 +1,6 @@
+ <%if !user_signed_in?%> 
+ <div class="row">
+<div class = "col-md-12" style = "margin:10px;margin-right:auto">
 <div class="panel panel-default devise-bs">
   <div class="panel-heading">
     <h4><%= t('.sign_in', :default => "Sign in") %></h4>
@@ -23,4 +26,10 @@
     <% end %>
   </div>
 </div>
+
+
 <%= render "devise/shared/links" %>
+</div>
+</div>
+<%end%>
+

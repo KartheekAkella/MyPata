@@ -1,3 +1,5 @@
+<p> 'haule' </p>
+
 <%= bootstrap_devise_error_messages! %>
 <div class="panel panel-default devise-bs">
   <div class="panel-heading">
@@ -9,10 +11,7 @@
         <%= f.label :nick %>
         <%= f.text_field :nick, class: "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar, class: "form-control" %>
-      </div>
+      
       <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>

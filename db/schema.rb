@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20161005203137) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contact_infos", force: :cascade do |t|
     t.text     "address"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_contact_infos_on_user_id"
+    t.index ["user_id"], name: "index_contact_infos_on_user_id", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_contacts_on_user_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id", using: :btree
   end
 
   create_table "educations", force: :cascade do |t|
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_educations_on_user_id"
+    t.index ["user_id"], name: "index_educations_on_user_id", using: :btree
   end
 
   create_table "emails", force: :cascade do |t|
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_emails_on_user_id"
+    t.index ["user_id"], name: "index_emails_on_user_id", using: :btree
   end
 
   create_table "follows", force: :cascade do |t|
@@ -57,8 +60,8 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.boolean  "blocked",         default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["followable_id", "followable_type"], name: "fk_followables"
-    t.index ["follower_id", "follower_type"], name: "fk_follows"
+    t.index ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+    t.index ["follower_id", "follower_type"], name: "fk_follows", using: :btree
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_hashtags_on_user_id"
+    t.index ["user_id"], name: "index_hashtags_on_user_id", using: :btree
   end
 
   create_table "interests", force: :cascade do |t|
@@ -76,7 +79,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_interests_on_user_id"
+    t.index ["user_id"], name: "index_interests_on_user_id", using: :btree
   end
 
   create_table "labels", force: :cascade do |t|
@@ -85,7 +88,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_labels_on_user_id"
+    t.index ["user_id"], name: "index_labels_on_user_id", using: :btree
   end
 
   create_table "locations", force: :cascade do |t|
@@ -94,7 +97,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_locations_on_user_id"
+    t.index ["user_id"], name: "index_locations_on_user_id", using: :btree
   end
 
   create_table "phones", force: :cascade do |t|
@@ -102,7 +105,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_phones_on_user_id"
+    t.index ["user_id"], name: "index_phones_on_user_id", using: :btree
   end
 
   create_table "social_infos", force: :cascade do |t|
@@ -113,7 +116,7 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_social_infos_on_user_id"
+    t.index ["user_id"], name: "index_social_infos_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,13 +133,9 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "nick"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.text     "intro"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "works", force: :cascade do |t|
@@ -148,7 +147,18 @@ ActiveRecord::Schema.define(version: 20161005203137) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_works_on_user_id"
+    t.index ["user_id"], name: "index_works_on_user_id", using: :btree
   end
 
+  add_foreign_key "contact_infos", "users"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "educations", "users"
+  add_foreign_key "emails", "users"
+  add_foreign_key "hashtags", "users"
+  add_foreign_key "interests", "users"
+  add_foreign_key "labels", "users"
+  add_foreign_key "locations", "users"
+  add_foreign_key "phones", "users"
+  add_foreign_key "social_infos", "users"
+  add_foreign_key "works", "users"
 end
