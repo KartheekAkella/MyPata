@@ -31,8 +31,10 @@
 
                 </div>
                 <div class="col-md-6 no-pad">
-                    <div class="user-image">
-                        <%= image_tag "i-sma.png",size: '260x180'%>
+                    <div class="user-image", style = "border: 5px solid white">
+                <%= image_tag current_user.avatar_url, size: "341x200"  %>
+
+                       <%#= image_tag "i-sma.png",size: '260x180'%>
                     </div>
                 </div>
             </div>

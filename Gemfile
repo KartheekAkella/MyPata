@@ -32,8 +32,12 @@ gem "acts_as_follower", :git => 'https://github.com/tcocca/acts_as_follower.git'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem "cocaine", "= 0.3.2" 
 gem 'carrierwave'
-gem 'mini_magick', '~> 4.3'
+
+gem 'mini_magick'
+#gem "refile", require: "refile/rails"
+#gem "refile-mini_magick"
 gem "nifty-generators", :group => :development
+gem 'fog'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

@@ -1,5 +1,6 @@
 # encoding: utf-8
   class User < ApplicationRecord
+    mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :phones
@@ -10,7 +11,7 @@
   has_one :hashtag
   has_many :interests
   has_many :labels
-
+  has_many :contacts
 
   acts_as_followable
   acts_as_follower
@@ -22,5 +23,5 @@
    def downcase_fields
       self.nick.downcase!
    end
-# mount_uploader :avatar, AvatarUploader
+ #mount_uploader :avatar, AvatarUploader
 end

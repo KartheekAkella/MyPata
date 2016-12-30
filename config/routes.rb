@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-    authenticated :user do
-    root 'home#index', as: :authenticated_root
-  end
+    #authenticated :user do
+    root 'home#index' #as: :authenticated_root
+  #end
 
-  root "home#landing"
+  #root "home#landing"
 
-  root "home#index"
+  #root "home#index"
   resources :home do
     collection do
       get 'landing'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
   resources :works
+  resources :contacts
   resources :educations
   resources :social_info
   resources :phones

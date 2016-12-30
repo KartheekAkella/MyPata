@@ -1,4 +1,5 @@
-<%if user_signed_in?%> 
+<%if user_signed_in?%>
+
 
       <!--sidebar start-->
       <aside>
@@ -6,22 +7,23 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                 <p class="centered"><a href= <%="/#{current_user.nick}"%>>
-                <%=
+                <%= image_tag current_user.avatar_url, class: "img-circle", width: "160"  %>
                 
+                <%#=
                 image_tag('i-sma.png', class: "img-circle", width: "60")
                 
                 %>
                 </a></p>
                 <h5 class="centered"><%="#{current_user.nick}"%></h5>
                    <li class="mt">
-                      <a href="/home">
+                      <a class ="active", href="/home">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a class = "active" href = "/labels" >
+                      <a href = "/labels" >
                           <i class="fa fa-desktop"></i>
                           <span>Labels</span>
                       </a>
@@ -31,6 +33,12 @@
                       <a href = <%="/#{current_user.nick}"%> >
                           <i class="fa fa-desktop"></i>
                           <span>Profile</span>
+                      </a>
+                  </li>
+                   <li class="sub-menu">
+                      <a href = "/contacts"%> 
+                          <i class="fa fa-desktop"></i>
+                          <span>contacts</span>
                       </a>
                   </li>
                   <li class="sub-menu">
@@ -126,6 +134,7 @@
       <!--footer end-->
   </section>
   <style type="text/css">
+ 
     
 body {
     padding: 30px 0px 60px;
