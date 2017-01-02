@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   resources :phones
   resources :emails
   resources :labels
-  devise_for :users, path: "MyPata",  path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'sign_up'}
- 
-  get "/:nick" => "profile#show"
+  devise_for :users, path: "MyPata",:controllers => { :omniauth_callbacks => "callbacks" },  path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'sign_up'}
+  get "/invites" => "invites#index"
+  get "/:id" => "profile#show"
   get "/profile/menu", to: "profile#menu"
   get "/:nick/add", to:"profile#add_contact", as: 'add_contact'
   

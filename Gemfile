@@ -34,11 +34,13 @@ gem "cocaine", "= 0.3.2"
 gem 'carrierwave'
 
 gem 'mini_magick'
+gem 'gmail-contacts', :require => "gmail-contacts"
 #gem "refile", require: "refile/rails"
 #gem "refile-mini_magick"
 gem "nifty-generators", :group => :development
 gem 'fog'
-
+gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'omniauth'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
